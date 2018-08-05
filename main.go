@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golp/vectorize"
+	"golp/tokenize"
 )
 
 func main() {
@@ -18,6 +18,6 @@ func main() {
 		[]string{r4},
 	}
 
-	uw := vectorize.FindUniqueWordsFromList(true, corpus)
+	uw := tokenize.FindUniqueWordsFromList(true, corpus)
 	fmt.Println(uw)
 }

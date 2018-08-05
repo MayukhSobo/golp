@@ -1,4 +1,4 @@
-package vectorize
+package tokenize
 
 import (
 	"strings"
