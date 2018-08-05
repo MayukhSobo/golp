@@ -1,33 +1,32 @@
 package vectorize
 
 import (
-	"fmt"
-	"reflect"
 	"strings"
 )
 
 // FindUniqueWordsFromList -- Find the common words in corpus in List
-func FindUniqueWordsFromList(ignoreCaps bool, corpus ...string) {
+func FindUniqueWordsFromList(ignoreCaps bool, corpus [][]string) []string {
 
 	// Create a list of all the list of corpus and tokensize the word
-	corpusList := make([][]string, len(corpus))
-	for i := 0; i < len(corpus); i++ {
-		var parts []string
+	for index, doc := range corpus {
 		if ignoreCaps {
-			parts = strings.Split(strings.ToLower(corpus[i]), " ")
+			corpus[index] = strings.Split(strings.ToLower(doc[0]), " ")
 		} else {
-			parts = strings.Split(corpus[i], " ")
+			corpus[index] = strings.Split(doc[0], " ")
 		}
-		corpusList[i] = parts
 	}
-
 	// Create a map to hold the counts of all the words
 	uniqueWords := map[string]bool{}
-	for _, doc := range corpusList {
+	for _, doc := range corpus {
 		for _, word := range doc {
 			uniqueWords[word] = true
 		}
 	}
 
-	fmt.Println((reflect.ValueOf(uniqueWords).MapKeys()))
+	// Get the keys as a token of all the unique words
+	var token []string
+	for k := range uniqueWords {
+		token = append(token, k)
+	}
+	return token
 }
