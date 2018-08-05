@@ -17,5 +17,9 @@ func main() {
 	// 	[]string{r4},
 	// }
 	// fmt.Println(corpus)
-	vectorize.FindUniquesInCorpus(r1, r2, r3, r4)
+	vectorize.FindUniqueWordsFromList(true, r1, r2, r3, r4)
+	// a := strings.ToLower(r1)
+	// a := []int{1, 2, 3}
+	// fmt.Println(uw)
+	// fmt.Println(strings.Split(r1, " ")[0])
 }
